@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "direction": "French garden editorial",
+  "mode": "persuade",
+  "tokens": {
+    "canvas": "#f7f4ee",
+    "surface": "#ede8df",
+    "ink": "#211c25",
+    "plum": "#382841",
+    "violet": "#5a467f",
+    "lavender": "#d8cde7"
+  },
+  "type": {
+    "display": "DM Serif Display",
+    "body": "DM Sans"
+  }
+}
