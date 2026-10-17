@@ -28,7 +28,11 @@ let dbInstance: Database.Database | null = null;
 export function getDb(): Database.Database {
   if (!dbInstance) {
     dbInstance = new Database(dbPath);
-    dbInstance.pragma("journal_mode = WAL");
+    if (isServerless) {
+      dbInstance.pragma("journal_mode = DELETE");
+    } else {
+      dbInstance.pragma("journal_mode = WAL");
+    }
     dbInstance.pragma("foreign_keys = ON");
     initSchema(dbInstance);
   }

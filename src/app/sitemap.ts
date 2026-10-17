@@ -1,11 +1,17 @@
 import { MetadataRoute } from "next";
 import getDb from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://lacreme.kz";
-  const db = getDb();
-
-  const products = db.prepare(`SELECT slug, updated_at FROM products WHERE is_active = 1`).all() as any[];
+  let products: any[] = [];
+  try {
+    const db = getDb();
+    products = db.prepare(`SELECT slug, updated_at FROM products WHERE is_active = 1`).all() as any[];
+  } catch (e) {
+    products = [];
+  }
 
   const productUrls: MetadataRoute.Sitemap = products.map((p) => ({
     url: `${baseUrl}/catalog/${p.slug}`,

@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, Clock, MapPin, Sparkles } from "lucide-react"
 import getDb from "@/lib/db";
 import HomeAddToCartButton from "@/components/HomeAddToCartButton";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const db = getDb();

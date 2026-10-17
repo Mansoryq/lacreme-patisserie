@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import getDb from "@/lib/db";
 import CatalogClient from "./CatalogClient";
 
+export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Каталог десертов и выпечки — La Crème Boutique Pâtisserie",
   description:
